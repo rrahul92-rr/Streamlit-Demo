@@ -3,14 +3,14 @@ import pandas as pd
 import numpy as np
 import datetime
 
-df_cat = pd.DataFrame(np.array(['INDIA', 'UAE', 'ARAB',  'REST OF WORLD', 'PAKISTAN REST OF ASIA', 'ASIA', 'AFRICA'], 
-                               ['Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Rasal Kaimah', 'Fujairah' , 'Umm Al Quwain'], 
-                               ['Unmarried', 'Married', 'Single', 'Others'], 
-                               ['TOYOTA','NISSAN', 'MITSUBISHI', 'CHEVROLET', 'HONDA', 'HYUNDAI', 'FORD', 'KIA', 'BMW', 'MERCEDES', 'LEXUS', 'VOLKSWAGEN', 'MAZDA', 'OTHERS'],
-                               ['Private', 'Commercial','Rent A Car', 'Public Transportation', 'Motor Cycle', 'Trailer'],
-                               ['Saloon', 'Station Wagon', 'Hatchback', 'Pickup', 'Sports/Coupe', 'Equipment and Machinery', 'Heavy Vehicle', 'Van', 'Buses', 'Motor Bike']))
+nationality = ('INDIA', 'UAE', 'ARAB',  'REST OF WORLD', 'PAKISTAN REST OF ASIA', 'ASIA', 'AFRICA') 
+emirates_issued = ('Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Rasal Kaimah', 'Fujairah' , 'Umm Al Quwain')
+make = ('TOYOTA','NISSAN', 'MITSUBISHI', 'CHEVROLET', 'HONDA', 'HYUNDAI', 'FORD', 'KIA', 'BMW', 'MERCEDES', 'LEXUS', 'VOLKSWAGEN', 'MAZDA', 'OTHERS')
+reg_type = ('Private', 'Commercial','Rent A Car', 'Public Transportation', 'Motor Cycle', 'Trailer')
+body_type = ('Saloon', 'Station Wagon', 'Hatchback', 'Pickup', 'Sports/Coupe', 'Equipment and Machinery', 'Heavy Vehicle', 'Van', 'Buses', 'Motor Bike')
+                          
 
-st.title("Marshmallow Car Insurance Simuator")
+st.title("Premium Rate Simuator")
 st.write("Please answer the following questions to know your premium rate eligibility :")
 
 # Driver related questions
@@ -23,9 +23,9 @@ driver_gender = st.radio("2. What is your gender?", ("Male", "Female"))
 st.write("#")
 driver_marital_status = st.radio("3. What is your Marital status?", ("Unmarried", "Married", "Single", "Others"))
 st.write("#")
-driver_nationality = st.selectbox("4. What is your nationality?", df_cat[~df_cat['nationality'].isna()]['nationality'])
+driver_nationality = st.selectbox("4. What is your nationality?", nationality)
 st.write("#")
-driver_emirates = st.selectbox("5. In which of the following Emirates was your license issued?", df_cat[~df_cat['emirates_issued'].isna()]['emirates_issued'])
+driver_emirates = st.selectbox("5. In which of the following Emirates was your license issued?", emirates_issued)
 st.write("#")
 
 
@@ -40,11 +40,11 @@ vehicle_reg_date = st.date_input("1. Select the first registration date of your 
 st.write('#')
 vehicle_value  = st.number_input("2. What is the value of your vehicle?", value = 10000, min_value = 1000, max_value = 1000000, step = 500)
 st.write('#')
-vehicle_make = st.selectbox("3. What is the make of your vehicle?", df_cat[~df_cat['vehicle_make'].isna()]['vehicle_make']) 
+vehicle_make = st.selectbox("3. What is the make of your vehicle?", make) 
 st.write('#')
-vehicle_reg_type = st.selectbox("4. What is the registration type of your vehicle?", df_cat[~df_cat['vehicle_reg_type'].isna()]['vehicle_reg_type'])
+vehicle_reg_type = st.selectbox("4. What is the registration type of your vehicle?", reg_type)
 st.write('#')
-vehicle_body_type = st.selectbox("5. What is the body type of your vehicle?", df_cat[~df_cat['vehicle_body_type'].isna()]['vehicle_body_type'])
+vehicle_body_type = st.selectbox("5. What is the body type of your vehicle?", body_type)
 st.write('#')
 vehilce_seats = st.number_input("6. How many seats does your vehicle have?", min_value = 1, value = 4, max_value = 100, step = 1)
 st.write('#')
