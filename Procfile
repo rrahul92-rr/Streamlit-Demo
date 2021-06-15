@@ -1,1 +1,1 @@
-web : sh setup.sh && streamlit run model_simulation.py
+web: sh setup.sh && streamlit run model_simulation.py
