@@ -3,8 +3,13 @@ import pandas as pd
 import numpy as np
 import datetime
 
-#st.set_page_config(page_title = "Marshmallow Car Insurance Simuator", layout = 'wide')
-df_cat = pd.read_csv(r'/users/basingse/desktop/Marshmallow/Risk Pricing Model/Classification Model A/Categories for dashboard input.csv', index_col = None)
+df_cat = pd.DataFrame(np.array(['INDIA', 'UAE', 'ARAB',  'REST OF WORLD', 'PAKISTAN REST OF ASIA', 'ASIA', 'AFRICA'], 
+                               ['Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Rasal Kaimah', 'Fujairah' , 'Umm Al Quwain'], 
+                               ['Unmarried', 'Married', 'Single', 'Others'], 
+                               ['TOYOTA','NISSAN', 'MITSUBISHI', 'CHEVROLET', 'HONDA', 'HYUNDAI', 'FORD', 'KIA', 'BMW', 'MERCEDES', 'LEXUS', 'VOLKSWAGEN', 'MAZDA', 'OTHERS'],
+                               ['Private', 'Commercial','Rent A Car', 'Public Transportation', 'Motor Cycle', 'Trailer'],
+                               ['Saloon', 'Station Wagon', 'Hatchback', 'Pickup', 'Sports/Coupe', 'Equipment and Machinery', 'Heavy Vehicle', 'Van', 'Buses', 'Motor Bike']))
+
 st.title("Marshmallow Car Insurance Simuator")
 st.write("Please answer the following questions to know your premium rate eligibility :")
 
